@@ -1,0 +1,6 @@
+pypdf
+pdfplumber
+python-docx
+sentence-transformers
+click
+pybind11
