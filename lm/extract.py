@@ -24,7 +24,7 @@ def extractPdf(filepath : Path):
 
 def extractDoc(filepath : Path):
     doc = Document(filepath)
-    return "\n".join(para for para in doc.paragraphs)
+    return "\n".join(para.text for para in doc.paragraphs)
 
 def extract(filepath : Path):
     suf = filepath.suffix.lower()
@@ -33,10 +33,10 @@ def extract(filepath : Path):
         if suf in plainText:
             text = extractPlain(filepath)
         
-        elif suf == "pdf":
+        elif suf == ".pdf":
             text = extractPdf(filepath)
         
-        elif suf == "docx" or suf == "doc":
+        elif suf == ".docx" or suf == ".doc":
             text = extractDoc(filepath)
 
         else:
@@ -48,7 +48,7 @@ def extract(filepath : Path):
             return None
         return text
     except Exception as e:
-        logger.error(f"Failed to extract text : {filepath} : {e}")
+        logger.error(f"Failed to extract text : {filepath.name} : {e}")
         return None
     
 
