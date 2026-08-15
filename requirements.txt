@@ -4,3 +4,4 @@ python-docx
 sentence-transformers
 click
 pybind11
+python_dotenv
